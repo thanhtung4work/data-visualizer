@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main-content %}
+
+<div class="guide">
+    <div class="border-circle">
+        <i class="fa-solid fa-question"></i>
+        <div id="triangle-up-1"></div>
+        <div id="triangle-up-2"></div>
+        <div class="guide-content">
+            <h5>Hướng dẫn sử dụng</h5>
+            <ol>
+                <li>Tệp phải theo định dạng .csv</li>
+                <li>Các cột bắt buộc: | Order ID | Product | Quantity Ordered | Price Each | Order Date | Purchase Address |</li>
+                <li>Order Date có định dạng (MM/dd/yyyy hh:mm)</li>
+                <li>
+                    Purchase Address có định dạng: số nhà tên đường, thành phố, bang(hoặc tên viết tắt) mã zip<br>
+                    <b>Ví dụ:</b> 129 Cherry St, Atlanta, GA 30301
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="bubble5">
+        <div class="bubble5-arrow"></div>
+    </div>
+</div>
+<div class="form-submit" >
+    <form id="form-handle-file" method="post" enctype="multipart/form-data" onsubmit="return checkFile()">
+        {% csrf_token %}
+        <strong id="file-name">Chưa có tệp nào được chọn</strong>
+        {{ form.file }}
+        <label for="file-upload"><i class="fa-solid fa-arrow-up-from-bracket"></i>Chọn tệp ...</label>
+        <button class="btn-submit" id="btn-submit">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Thống kê êi
+        </button>
+    </form>
+</div>
+
+{% endblock main-content %}

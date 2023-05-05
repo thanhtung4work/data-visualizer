@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="shortcut icon" href="../static/images/cwf_logo.png">
+        <title>Code bằng chân</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- css -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+        <link href="{% static 'css/lightbox.css' %}" rel="stylesheet"/>
+        <link href="{% static 'css/loader.css' %}" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'Bootstrap/css/bootstrap.min.css' %}" >  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <!-- js -->
+        <script src="{% static 'Bootstrap/js/bootstrap.min.js' %}"></script>  
+        <script type="text/javascript" src="{% static 'js/myjs.js' %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="my-container">
+            <!-- start statistical -->
+            <div class="row statistical-page">
+                <div class="menu " id="menu">
+                    <div class="handle-menu" id="handle-menu">
+                        <i class="fa-solid fa-arrow-right" id="arrow"></i>
+                    </div>
+                    <div class="logo-header">
+                        <img src="../static/images/cwf_logo.png" class="logo" alt=""/>
+                        <img src="../static/images/web_name.png" class="name" alt=""/>
+                    </div>
+                    <ul class="main-menu">
+                        <li>
+                            <a href="/">
+                                <i class="fa-solid fa-file"></i>
+                                <span>Chọn File</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/statistical">
+                                <i class="fa-solid fa-chart-column"></i>
+                                <span>Thống kê</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/present">
+                                <i class="fa-solid fa-pen"></i>
+                                <span>Trình bày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/exportpdf" download>
+                                <i class="fa-solid fa-file-pdf"></i>
+                                <span>Xuất PDF</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="statistical-content col-xl-12">
+                    <div class="row">
+                        {% block main-content %}
+
+                        {% endblock main-content %}
+                    </div>
+                </div>
+            </div>
+            <!-- end statistical -->
+            <div class="file-error" id="file-error">
+                <i class="fa-regular fa-face-smile"></i>
+                <strong id="title-error"></strong>
+                <strong id="abc">Thông báo sẽ đóng trong</strong>
+                <strong id="time"></strong>
+            </div>
+        </div>
+        <div class="shadow" id="shadow"></div>
+    </body>
+</html>
